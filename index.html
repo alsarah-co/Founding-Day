@@ -6,10 +6,12 @@
 <title>بطاقة تهنئة</title>
 
 <style>
-@font-face {
-  font-family: 'GE_SS_Two_Bold';
-  src: url('GE-SS-Two-Bold.otf') format('opentype');
+
+  @font-face {
+  font-family: 'GE_SS_Two_Light';
+  src: url('GE_SS_Two_Light.otf') format('opentype');
 }
+
 
 body{
   margin:0;
@@ -181,7 +183,7 @@ function generate(){
     ctx.textBaseline = "middle";
     ctx.direction = "rtl";
     ctx.fillStyle = NAME_COLOR;
-    ctx.font = `800 ${fontSize}px GE_SS_Two_Bold`;
+   ctx.font = `400 ${size}px GE_SS_Two_Light`;
 
     ctx.shadowColor = "rgba(0,0,0,.15)";
     ctx.shadowBlur = 4;
@@ -207,6 +209,7 @@ dlBtn.onclick = download;
 </script>
 </body>
 </html>
+
 
 
 
