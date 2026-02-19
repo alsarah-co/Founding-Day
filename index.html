@@ -78,10 +78,12 @@ button{
   white-space:nowrap;
 }
 
-.primary{
-  background:#433b65;
+
+  .primary{
+  background:#6b0f1a;   /* برقندي */
   color:#fff;
 }
+
 
 .ghost{
   background:#eee;
@@ -168,8 +170,8 @@ function generate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,0,0);
 
-    const X = (canvas.width / 2) - 100;
-    const Y = canvas.height * 0.797;
+    const X = (canvas.width / 2) - 120;
+    const Y = canvas.height * 0.70;
 
     const MAX_WIDTH = canvas.width * 0.60;
 
@@ -205,5 +207,6 @@ dlBtn.onclick = download;
 </script>
 </body>
 </html>
+
 
 
