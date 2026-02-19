@@ -94,34 +94,6 @@ button{
   color:#666;
 }
 
-/* اختيار اللون */
-.color-picker{
-  margin-top:10px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.color-picker span{
-  font-size:13px;
-  color:#666;
-  font-weight:bold;
-}
-
-.color-btn{
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  border:2px solid #ddd;
-  cursor:pointer;
-  padding:0;
-}
-
-.color-btn.active{
-  outline:3px solid rgba(67,59,101,.25);
-  border-color:#433b65;
-}
-
 canvas{
   width:100%;
   height:auto;
@@ -143,22 +115,6 @@ canvas{
       <div class="field">
         <label>اسم الموظف</label>
         <input id="name" placeholder="اكتب الاسم هنا" />
-
-        <!-- اختيار اللون (لونين فقط) -->
-        <div class="color-picker">
-          <span>لون الاسم:</span>
-
-          <button type="button" class="color-btn active"
-            data-color="#433b65"
-            style="background:#433b65;">
-          </button>
-
-          <button type="button" class="color-btn"
-            data-color="#ffffff"
-            style="background:#ffffff; border:2px solid #bbb;">
-          </button>
-        </div>
-
         <div class="note">
           ملاحظة: لإظهار التصميم بشكل أجمل يُفضّل استخدام الاسم الثنائي.
         </div>
@@ -174,7 +130,7 @@ canvas{
 </div>
 
 <script>
-let NAME_COLOR = "#433b65";
+const NAME_COLOR = "#fcf5ed";  // ✅ اللون الثابت الجديد
 
 const BASE_FONT_SIZE = 130;
 const MIN_FONT_SIZE = 80;
@@ -246,14 +202,8 @@ function download(){
 
 genBtn.onclick = generate;
 dlBtn.onclick = download;
-
-document.querySelectorAll(".color-btn").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    NAME_COLOR = btn.dataset.color;
-    document.querySelectorAll(".color-btn").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-  });
-});
 </script>
 </body>
 </html>
+
+
