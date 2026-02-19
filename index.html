@@ -6,16 +6,14 @@
 <title>بطاقة تهنئة</title>
 
 <style>
-
-  @font-face {
+@font-face {
   font-family: 'GE_SS_Two_Light';
   src: url('GE_SS_Two_Light.otf') format('opentype');
 }
 
-
 body{
   margin:0;
-  font-family:'GE_SS_Two_Bold', Arial, sans-serif;
+  font-family:'GE_SS_Two_Light', Arial, sans-serif;  /* ✅ عدلناها */
   background:#f4f4f4;
 }
 
@@ -80,12 +78,10 @@ button{
   white-space:nowrap;
 }
 
-
-  .primary{
-  background:#6b0f1a;   /* برقندي */
+.primary{
+  background:#6b0f1a;
   color:#fff;
 }
-
 
 .ghost{
   background:#eee;
@@ -134,7 +130,7 @@ canvas{
 </div>
 
 <script>
-const NAME_COLOR = "#fcf5ed";  // ✅ اللون الثابت الجديد
+const NAME_COLOR = "#fcf5ed";
 
 const BASE_FONT_SIZE = 150;
 const MIN_FONT_SIZE = 80;
@@ -150,7 +146,7 @@ let lastUrl = null;
 function fitFont(text, maxWidth){
   let size = BASE_FONT_SIZE;
   while(size > MIN_FONT_SIZE){
-    ctx.font = `800 ${size}px GE_SS_Two_Bold`;
+    ctx.font = `400 ${size}px GE_SS_Two_Light`;  /* ✅ الخط الجديد */
     if(ctx.measureText(text).width <= maxWidth) return size;
     size -= 2;
   }
@@ -183,7 +179,8 @@ function generate(){
     ctx.textBaseline = "middle";
     ctx.direction = "rtl";
     ctx.fillStyle = NAME_COLOR;
-   ctx.font = `400 ${size}px GE_SS_Two_Light`;
+
+    ctx.font = `400 ${fontSize}px GE_SS_Two_Light`; /* ✅ fontSize مو size */
 
     ctx.shadowColor = "rgba(0,0,0,.15)";
     ctx.shadowBlur = 4;
@@ -194,6 +191,8 @@ function generate(){
     lastUrl = canvas.toDataURL("image/png");
     dlBtn.disabled = false;
   };
+
+  img.onerror = () => alert("تأكدي أن template.png موجود بنفس المجلد واسم الملف صحيح.");
 }
 
 function download(){
@@ -209,9 +208,6 @@ dlBtn.onclick = download;
 </script>
 </body>
 </html>
-
-
-
 
 
 
